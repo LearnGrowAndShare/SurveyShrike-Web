@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private oauthService: OAuthService) { }
+  constructor(private oauthService: OAuthService, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -20,7 +22,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.oauthService.logOut();
+    const idToken = this.oauthService.getIdToken();
+    this.http.get(environment.id_server + "/api/authenticate/logout?logoutid=" + idToken).subscribe(x => {
+      this.oauthService.logOut();
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService, JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from '../auth-config';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,10 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    this.oauthService.initLoginFlow();
+       this.oauthService.initLoginFlow();
+  }
+  register() {
+    window.location.href = environment.id_server + "/register.html"
   }
 
   private configure() {
