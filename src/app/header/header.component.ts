@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private oauthService: OAuthService) { }
 
   ngOnInit() {
+  }
+
+  public get name() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+    return true;
+  }
+
+  logout() {
+    this.oauthService.logOut();
   }
 
 }

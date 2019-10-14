@@ -1,10 +1,24 @@
-<!-- dark -->
-<ul class="nav nav-tabs bg-dark">
-    <li class="nav-item">
-      <a class="nav-link active" routerLinkActive [routerLink]="['/user']">Dashboard</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link"  routerLinkActive [routerLink]="['/user/new']">New Survey</a>
-    </li>
-    <li class="nav-item">
-</ul>
+<nav *ngIf="name" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+            <a class="nav-link" routerLinkActive [routerLink]="['/user']">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  routerLinkActive [routerLink]="['/user/new']">New Survey</a>
+        </li>
+    
+        <li class="nav-item float-right">
+            Hello user, 
+        </li>
+
+        <li class="nav-item">
+            <a class="dropdown-item" href="javascipt:void(0)" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
