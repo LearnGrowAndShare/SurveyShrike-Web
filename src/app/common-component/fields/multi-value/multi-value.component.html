@@ -1,0 +1,14 @@
+<select *ngIf="inputType === 'dropdown'" class="form-control" [class.disabled]="disabled">
+    <option *ngFor="let item of items"  (onChange)="changeSelectStatus(item, false)"> {{item}}</option>
+</select>
+
+<div *ngIf="inputType === 'checkbox'" class="form-control h-100" [class.disabled]="disabled" >
+        <div class="form-check" *ngFor="let item of items">
+                <input class="form-check-input"  type="checkbox" (onChange)="changeSelectStatus($event.target.value, item, true)"
+                 checked="{{item.selected}}" >
+                <label class="form-check-label" for="defaultCheck1">
+                        {{item}}
+                </label>
+        </div>
+
+</div>

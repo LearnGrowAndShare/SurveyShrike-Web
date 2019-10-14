@@ -1,0 +1,11 @@
+
+
+<div class="form-control" [class.disabled]="disabled" *ngFor="let item of items">
+        <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input"value="{{item.selected}}" 
+                (onChange)="changeSelectStatus(item, true)" checked="{{item.selected}}"  name="radio-stacked" required>
+                <label class="custom-control-label" > {{item}}</label>
+        </div>
+  
+
+</div>

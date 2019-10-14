@@ -1,0 +1,5 @@
+<input  class="form-control" [class.disabled]="disabled" (input)="valueChange($event.target.value)"
+    [value]="fieldValue"
+    *ngIf="!multiline" /> 
+<textarea  class="form-control"  [value]="fieldValue" 
+[class.disabled]="disabled" (input)="valueChange($event.target.value)" *ngIf="multiline"> </textarea>

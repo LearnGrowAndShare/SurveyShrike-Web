@@ -1,0 +1,18 @@
+<h5 class="display-3">Add a new survey</h5>
+
+<form class="form mt-4">
+    <div class="form-group">
+        <label for="title"> Title</label>
+        <input type="text" class="form-control" id="Title" placeholder="Event title">
+    </div>
+
+    <div class="border-primary border-top">
+        <h5 class="display-5 mt-4">Add survey parameters 
+            <button class="btn btn-outline-primary  float-right" type="button" (click)="addField()">
+                <i class="fa fa-plus"></i></button></h5>
+
+        <div class="h-100">
+            <app-field-lists [fieldConfigs]="fieldConfigs"> </app-field-lists>
+        </div>
+    </div>
+</form>
