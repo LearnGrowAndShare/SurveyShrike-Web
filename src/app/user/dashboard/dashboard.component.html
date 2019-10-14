@@ -1,9 +1,9 @@
 <div class="row row-eq-height" >
-    <div class="col-12 col-sm-4 mt-3" *ngFor="let item of surveys">
+    <div class="col-12 col-sm-4 mt-3" *ngFor="let item of surveys ">
         <div class="bg-light p-4">
             <h5 class="card-title">{{item.title}}</h5>
               
-            <a [routerLink]="['/user/survey/' + item.id]" class="card-link">Update details</a>
+            <a [routerLink]="['/user/survey/' + item.id]" class="card-link">View details</a>
             <a  href="javascript:void(0)" (click)="archive(item.id)" class="card-link">Archive</a>
         </div>
 

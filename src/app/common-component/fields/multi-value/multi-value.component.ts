@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, EventEmitter, Output} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -16,7 +16,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 export class MultiValueComponent implements OnInit, ControlValueAccessor{
   selectedValue = [];
   disabled = false;
-
+  @Output() onSelectionChange:EventEmitter<any> = new EventEmitter<any>();
   onChange = (value: any[]) => {};
   onTouched= (value: string) => {};
 
@@ -60,7 +60,7 @@ export class MultiValueComponent implements OnInit, ControlValueAccessor{
     }
 
     this.onChange(this.selectedValue);
-
+    this.onSelectionChange.emit(this.selectedValue);
   }
 
 }

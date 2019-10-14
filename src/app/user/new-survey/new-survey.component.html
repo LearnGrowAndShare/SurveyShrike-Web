@@ -3,7 +3,7 @@
 <form class="form mt-4">
     <div class="form-group">
         <label for="title"> Title</label>
-        <input type="text" class="form-control" id="Title" placeholder="Event title">
+        <input type="text" class="form-control" id="Title" (input)="setTitle($event.target.value)" placeholder="Event title">
     </div>
 
     <div class="border-primary border-top">
@@ -13,6 +13,9 @@
 
         <div class="h-100">
             <app-field-lists [fieldConfigs]="fieldConfigs"> </app-field-lists>
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-primary" type="button" (click)="saveData()" > Save </button>
         </div>
     </div>
 </form>

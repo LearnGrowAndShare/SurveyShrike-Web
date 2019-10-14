@@ -1,1 +1,25 @@
-<p>survey-details works!</p>
+<div class="row flex-column">
+    <h4 class="display-3"> {{data?.title}}</h4>
+
+    <div class="col">
+        <div class="row">
+            <div class="col col-md-4 border border-primary mx-3" *ngFor="let form of data?.forms">
+                <h6 class="lead"> form title - {{form.title}}</h6>
+                <p class="lead">Responses</p>
+                <div class="overflow-auto" >
+                        <div class="list-group">
+                                <a *ngFor="let response of form.responses" href="#" class="list-group-item list-group-item-action active">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h5 class="mb-1">     {{response.item2}}</h5>
+                                          <small>{{response.item1}}</small>
+                                        </div>
+                                  
+                                      </a>
+                           
+                              
+                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,15 +9,17 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  email = "";
   constructor(private oauthService: OAuthService, private http: HttpClient) { }
 
   ngOnInit() {
+    
   }
 
   public get name() {
-    let claims = this.oauthService.getIdentityClaims();
+    let claims: any = this.oauthService.getIdentityClaims();
     if (!claims) return null;
+    this.email = claims.email;
     return true;
   }
 

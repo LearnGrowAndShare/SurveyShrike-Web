@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, EventEmitter, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,7 @@ export class StringInputComponent implements ControlValueAccessor  {
   fieldValue = "";
   onChange = (value: string) => {};
   onTouched= (value: string) => {};
+  @Output() onSelectionChange:EventEmitter<any> = new EventEmitter<any>();
   
   writeValue(obj: any): void {
     this.fieldValue = obj;
@@ -40,5 +41,6 @@ export class StringInputComponent implements ControlValueAccessor  {
 
   valueChange(value) {
     this.fieldValue = value;
+    this.onSelectionChange.emit(value);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, Output , EventEmitter} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,7 @@ export class FileComponent  implements ControlValueAccessor  {
   fieldValue = "";
   onChange = (value: File) => {};
   onTouched= (value: string) => {};
-  
+  @Output() onSelectionChange:EventEmitter<any> = new EventEmitter<any>();
 
   writeValue(obj: any): void {
    this.fieldValue = obj;
@@ -42,5 +42,6 @@ export class FileComponent  implements ControlValueAccessor  {
   fileChange(file) {
     this.fileToUpload = file;
     this.onChange(this.fileToUpload)
+    this.onSelectionChange.emit(this.fileToUpload);
   }
 }

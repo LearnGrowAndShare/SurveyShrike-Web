@@ -3,16 +3,18 @@
         <div class="form-group">
             <label> {{config.title}}</label>
             <div [ngSwitch]="config.fieldType">
-            <app-string-input  *ngSwitchCase="'Input'" [multiline]="false"></app-string-input> 
-            <app-string-input   *ngSwitchCase="'Multiline'" [multiline]="true"></app-string-input> 
-            <app-multi-value  *ngSwitchCase="'Select'" [inputType]="'checkbox'" [items]="config.formConfig?.split(',')"></app-multi-value> 
-            <app-multi-value  *ngSwitchCase="'Dropdown'" [inputType]="'dropdown'" [items]="config.formConfig?.split(',')"></app-multi-value> 
-            <app-file   *ngSwitchCase="'File'"  ></app-file> 
-            <app-boolean-value  *ngSwitchCase="'Radio'"  [items]="config.formConfig?.split(',')"></app-boolean-value> 
+            <app-string-input  *ngSwitchCase="'Input'" (onSelectionChange)="changeInputEvent($event, config.id)" [multiline]="false"></app-string-input> 
+            <app-string-input   *ngSwitchCase="'Multiline'"  (onSelectionChange)="changeInputEvent($event, config.id)"  [multiline]="true"></app-string-input> 
+            <app-multi-value  *ngSwitchCase="'Select'"  (onSelectionChange)="changeMultiValueEvent($event, config.id)"  [inputType]="'checkbox'" [items]="config.formConfig?.split(',')"></app-multi-value> 
+            <app-multi-value  *ngSwitchCase="'Dropdown'"  (onSelectionChange)="changeMultiValueEvent($event, config.id)" [inputType]="'dropdown'" [items]="config.formConfig?.split(',')"></app-multi-value> 
+            <app-file   *ngSwitchCase="'File'"  (onSelectionChange)="changeFile($event, config.id)"  ></app-file> 
+            <app-boolean-value  *ngSwitchCase="'Radio'" (onSelectionChange)="changeBoolean($event, config.id)" [items]="config.formConfig?.split(',')"></app-boolean-value> 
         </div>
         </div>
       
 </div>
-
+<div>
+    <button class="btn btn-primary" type="button" (click)="save()"> Submit you response</button>
+</div>
      
 </div>

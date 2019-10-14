@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
 
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private data = [];
+  private readonly url;
   private response = [];
-  constructor() { }
+  constructor(private http: HttpClient) { 
+    this.url = environment.api;
+  }
 
   addSurvey(survey) {
-    this.data = [];
-    this.data.push(survey);
-  
+    return this.http.post(this.url + "survey/create", survey)
   }
 
   getSurvey(survey) {
-    
+    return this.http.get(this.url + 'survey/getsummary/' + survey);
   }
 
-  getAllSurvey(survey) {
-
+  getAllSurvey() {
+    return this.http.get(this.url + "survey/getall").pipe((map((x: any) => x.surveys)))
   }
 
 
@@ -28,11 +32,11 @@ export class DataService {
   }
 
   archiveSurvey(survey) {
-
+    return this.http.delete(this.url + 'survey/delete/' + survey);
   }
 
   addressServer(survey) {
-    this.response = [];
+
   }
   
 }

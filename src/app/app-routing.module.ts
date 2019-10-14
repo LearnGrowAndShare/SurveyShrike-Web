@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path : 'user', loadChildren: () => import(`./user/user.module`).then(m => m.UserModule) },
-  { path : 'survey', component:  SurveyComponent },
+  { path : 'survey/:id', component:  SurveyComponent },
   { path : '', component:  HomeComponent },
   { path : '**', component:  HomeComponent }
 ];
