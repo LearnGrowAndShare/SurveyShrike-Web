@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddFieldComponent } from './add-field.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('AddFieldComponent', () => {
   let component: AddFieldComponent;
@@ -8,7 +10,9 @@ describe('AddFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddFieldComponent ]
+      declarations: [ AddFieldComponent ], 
+      imports: [ReactiveFormsModule, FormsModule],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

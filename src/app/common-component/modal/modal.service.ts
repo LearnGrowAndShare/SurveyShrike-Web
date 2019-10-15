@@ -11,10 +11,10 @@ export class ModalService {
     showConfirmButton: false,
     timer: 3000
   })
-  constructor(private SimpleModalService: SimpleModalService) { }
+  constructor(private simpleModalService: SimpleModalService) { }
 
   showPrompt() {
-    return this.SimpleModalService.addModal(AddFieldComponent);
+    return this.simpleModalService.addModal(AddFieldComponent);
   }
 
   showToast(type, message) {    
