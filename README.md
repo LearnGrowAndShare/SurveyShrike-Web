@@ -2,7 +2,7 @@
 # SurveyShrikeWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
-
+[![Build Status](https://travis-ci.org/dreamerNcoder/SurveyShrike-Web.svg?branch=master)](https://travis-ci.org/dreamerNcoder/SurveyShrike-Web)
 ### Prerequisites
 
 You will need the following tools:
